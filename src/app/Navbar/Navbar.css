@@ -1,0 +1,179 @@
+/* Màu nền chính cho navbar */
+.nav-css {
+  background-color: #292b3a;
+}
+
+/* Định dạng chung cho chữ trong navbar và giảm khoảng cách bằng cách giảm padding */
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-item {
+  background-color: #292b3a;
+  color: #f8f9fa;
+  border-radius: 0.3125rem; /* 5px = 0.3125rem (giả sử 1rem = 16px) */
+  padding: 0.5rem 0.8rem; /* Giữ nguyên giá trị này vì đã tối ưu */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* Giảm khoảng cách giữa các li */
+.navbar-nav li {
+  margin: 0 0.125rem; /* 0.2rem = 0.125rem (giả sử 1rem = 16px) */
+}
+
+/* Hover cho nav-link và dropdown-item */
+.navbar-nav .nav-link:hover,
+.navbar-nav .dropdown-item:hover {
+  background-color: #495057;
+  color: #fff;
+}
+
+/* Dropdown menu cấp 1 */
+.navbar-nav .dropdown-menu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.3125rem); 
+  background-color: #292b3a;
+  border: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hiển thị dropdown cấp 1 khi hover hoặc có class "show" */
+.navbar-nav .dropdown:hover > .dropdown-menu,
+.navbar-nav .dropdown.show > .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Dropdown menu cấp 2 (submenu) */
+.navbar-nav .dropdown-menu .dropdown-menu {
+  left: 100%;
+  top: 0;
+  background-color: #292b3a;
+  transform: translateX(-0.3125rem); 
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hiển thị dropdown cấp 2 khi hover hoặc có class "show" */
+.navbar-nav .dropdown-menu .dropdown:hover > .dropdown-menu,
+.navbar-nav .dropdown-menu .dropdown.show > .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 991px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar-nav .nav-item {
+    width: 100%;
+  }
+  .navbar-nav .dropdown-menu {
+    position: static;
+    transform: none;
+    display: none;
+    width: 100%;
+    margin: 0;
+  }
+  .navbar-nav .dropdown.show > .dropdown-menu {
+    display: block;
+  }
+  .navbar-nav .nav-link,
+  .navbar-nav .dropdown-item {
+    font-size: 0.9rem; /* Giữ nguyên vì đã tối ưu */
+  }
+}
+
+/* CSS cho màn hình lớn (>= 1100px) và (<=1199px) */
+@media (min-width: 1100px) and (max-width: 1199px) {
+  .navbar-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .navbar-nav .nav-link,
+  .navbar-nav .dropdown-item {
+    font-size: 0.9rem; 
+  }
+}
+
+/* CSS cho màn hình lớn (<=1099px) */
+@media (max-width: 1099px) {
+  .navbar-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .navbar-nav .nav-link,
+  .navbar-nav .dropdown-item {
+    font-size: 0.85rem; /* Giữ nguyên vì đã tối ưu */
+  }
+}
+
+/* Keyframes cho hiệu ứng fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-0.3125rem); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Thêm keyframes cho hiệu ứng biến mất */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-0.3125rem); 
+  }
+}
+
+/* Dropdown menu chính */
+.navbar-nav .dropdown-menu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.3125rem); 
+  background-color: #292b3a;
+  border: none;
+  transition: visibility 0.3s ease;
+}
+
+/* Khi hover hoặc mở dropdown: thêm animation fadeIn */
+.navbar-nav .dropdown:hover > .dropdown-menu,
+.navbar-nav .dropdown.show > .dropdown-menu {
+  display: block;
+  visibility: visible;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Dropdown menu cấp 2 (submenu): thêm animation fadeIn */
+.navbar-nav .dropdown-menu .dropdown-menu {
+  left: 100%;
+  top: 0;
+  background-color: #292b3a;
+  transform: translateX(-0.3125rem); 
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.3s ease;
+}
+
+.navbar-nav .dropdown-menu .dropdown-item:hover + .dropdown-menu {
+  display: block;
+  visibility: visible;
+  animation: fadeIn 0.3s ease forwards;
+}

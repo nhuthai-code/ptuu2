@@ -1,0 +1,70 @@
+/* src/app/page.module.css */
+/* Hoặc styles từ MainContent.module.css nếu bạn tạo  terminal*/
+
+.ND {
+  text-align: center;
+  font-size: 1.75rem; /* 28px */
+  font-family: 'Roboto', sans-serif;
+  padding: 0.625rem; /* 10px */
+}
+
+.productRow {
+  width: calc(100% - 4rem); /* 100% trừ 2rem (padding của .sale-slider) và 2rem (cách lề trái/phải 1rem) */
+  margin: 0 auto; /* Căn giữa để cách lề trái/phải 1rem */
+}
+
+.productItem {
+  padding: 1rem 0.5rem; /* Thêm padding trái/phải 0.5rem để khớp với .sale-box */
+  text-align: center;
+  background-color: #fff;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.625rem 0rem;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Đảm bảo ô chiếm toàn bộ chiều rộng của col-* */
+  box-sizing: border-box; /* Đảm bảo padding và border không làm tăng kích thước */
+  
+  /* THÊM/SỬA ĐOẠN NÀY ĐỂ BỎ GẠCH CHÂN VÀ ĐỔI MÀU TEXT */
+  text-decoration: none; /* Bỏ gạch chân mặc định của thẻ <a> */
+  color: inherit; /* Kế thừa màu chữ từ cha, hoặc đặt màu cụ thể */
+}
+
+.productItem:hover {
+  transform: translateY(-0.3125rem);
+  box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
+  /* THÊM/SỬA ĐOẠN NÀY ĐỂ BỎ GẠCH CHÂN KHI HOVER */
+  text-decoration: none; /* Đảm bảo không có gạch chân khi hover */
+}
+
+.productItem img {
+  width: 100%;
+  max-width: 15.625rem;
+  height: 15rem; /* Đặt chiều cao cố định để hình ảnh đồng đều */
+  margin-bottom: 0.625rem;
+  border-radius: 0.3125rem;
+  object-fit: contain;
+}
+
+.productItem h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333; /* Đảm bảo màu chữ mong muốn */
+  margin: 0.3125rem 0;
+}
+
+.productItem p {
+  margin: 0.3125rem 0;
+  font-size: 0.875rem;
+  color: #555; /* Đảm bảo màu chữ mong muốn */
+}
+
+.productPrice {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #d9534f;
+}
+
+.mainContentContainer {
+  margin-bottom: 1rem; /* Đảm bảo cách bên dưới 1rem */
+  padding: 0; /* Đảm bảo không có padding thừa */
+}
