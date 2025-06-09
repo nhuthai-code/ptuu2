@@ -8,7 +8,7 @@ const formatPrice = (price) => {
 };
 
 export default async function ProductDetailPage({ params }) {
-  const { id } = await params; // Không cần await ở đây nếu params là đối tượng bình thường
+  const { id } = await params; // Không cần await ở đây nếu params là đối tượng bình thường  nhuthaitrannguyen Tambiet@1217
 
   let product = null;
   try {
